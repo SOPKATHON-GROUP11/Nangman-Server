@@ -2,6 +2,8 @@ import Fruit from "../models/Fruit";
 import { FruitResponseDto } from "../interfaces/fruit/FruitResponseDto";
 import { FruitMyResponseDto } from "../interfaces/fruit/FruitMyResponseDto";
 import mongoose, { isValidObjectId } from "mongoose";
+import { FruitCreateDto } from "../interfaces/fruit/FruitCreateDto";
+import { PostBaseResponseDto } from "../interfaces/common/PostBaseResponseDto";
 
 const id = "6288fdbb4c7da258ef44a298";
 
@@ -143,10 +145,36 @@ const putWateringCount = async (fruitId: string) : Promise<String | null> => {
     }
 };
 
+const createFruit = async (
+    fruitCreateDto: FruitCreateDto
+): Promise<PostBaseResponseDto> => {
+    try {
+        const fruit = new Fruit({
+            type: fruitCreateDto.type,
+            contents: fruitCreateDto.contents,
+            wateringCount: 0,
+            userId: id,
+            onTree: true,
+        });
+
+        await fruit.save();
+
+        const data = {
+            _id: fruit.id,
+        };
+
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
 export default {
     getFruits,
     findFruitById,
     getMyFruitsOnTree,
     getMyFruits,
     putWateringCount,
+    createFruit,
 };
