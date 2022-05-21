@@ -143,8 +143,7 @@ const putWateringCount = async (req: Request, res: Response) => {
         res.status(statusCode.OK).send(
             util.success(
                 statusCode.OK,
-                message.PUT_FRUIT_WATERING_COUNT_SUCCESS,
-                data
+                message.PUT_FRUIT_WATERING_COUNT_SUCCESS
             )
         );
     } catch (error) {

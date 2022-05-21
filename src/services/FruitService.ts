@@ -125,7 +125,7 @@ const getMyFruits = async (): Promise<FruitMyResponseDto[]> => {
     }
 };
 
-const putWateringCount = async (fruitId: string) => {
+const putWateringCount = async (fruitId: string) : Promise<String | null> => {
     try {
         const fruit = await Fruit.findById(fruitId);
 
@@ -136,6 +136,7 @@ const putWateringCount = async (fruitId: string) => {
         const wateringCount = fruit.wateringCount + 1;
 
         await Fruit.findByIdAndUpdate(fruitId, {wateringCount : wateringCount});
+        return "SUCCESS";
     } catch (error) {
         console.log(error);
         throw error;
