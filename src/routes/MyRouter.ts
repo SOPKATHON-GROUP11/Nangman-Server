@@ -5,5 +5,6 @@ import { MyController } from "../controllers";
 const router: Router = Router();
 
 router.get("/check", MyController.myCheck);
+router.put("/basket", MyController.miningFruits);
 
 export default router;

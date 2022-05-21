@@ -13,6 +13,7 @@ const message = {
     READ_FRUITS_SUCCESS: "전체 게시글 조회 성공",
 
     READ_MY_CHECK_SUCCESS: "10개 이상 유무 조회 성공",
+    PUT_MY_FRUITS_ON_BASKET_SUCCESS: "나무에 걸려있는 과일들 수확 완료"
 };
 
 export default message;
