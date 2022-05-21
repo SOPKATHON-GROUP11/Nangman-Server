@@ -70,13 +70,9 @@ const findFruitById = async (
 
 const getMyFruitsOnTree = async (): Promise<FruitMyResponseDto[] | null> => {
     try {
-        const check = isValidObjectId(id);
-        console.log(check);
-        if (!check) return null;
-
-        const fruits = await Fruit.find({ 
+        const fruits = await Fruit.find({
             userId: id,
-            onTree: true 
+            onTree: true,
         });
 
         const data = await Promise.all(

@@ -73,13 +73,6 @@ const findFruitById = async (req: Request, res: Response) => {
  */
 const getMyFruitsOnTree = async (req: Request, res: Response) => {
     try {
-        const {onTree} = req.query;
-        if (onTree == undefined || onTree != 'true') {
-            return res
-                .status(statusCode.BAD_REQUEST)
-                .send(util.fail(statusCode.BAD_REQUEST, message.BAD_REQUEST));
-        }
-
         const data = await FruitService.getMyFruitsOnTree();
 
         if (!data) {
