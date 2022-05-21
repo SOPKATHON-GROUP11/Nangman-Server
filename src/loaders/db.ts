@@ -12,11 +12,11 @@ const connectDB = async () => {
         console.log("Mongoose Connected ...");
 
         User.createCollection().then(function (collection) {
-            console.log("Review Collection is created!");
+            console.log("User Collection is created!");
         });
       
         Fruit.createCollection().then(function (collection) {
-            console.log("Review Collection is created!");
+            console.log("Fruit Collection is created!");
         });
     } catch (err: any) {
         console.error(err.message);
