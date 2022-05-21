@@ -1,4 +1,5 @@
 import FruitService from "./FruitService";
+import MyService from "./MyService";
 
 //service index file
-export { FruitService };
+export { FruitService, MyService };

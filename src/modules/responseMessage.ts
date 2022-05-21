@@ -10,6 +10,8 @@ const message = {
     INTERNAL_SERVER_ERROR: "서버 내부 오류",
 
     READ_FRUITS_SUCCESS: "전체 게시글 조회 성공",
+
+    READ_MY_CHECK_SUCCESS: "10개 이상 유무 조회 성공",
 };
 
 export default message;
