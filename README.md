@@ -22,6 +22,7 @@
 >prettier 사용
 
 </br>
+
 ## Commit Message Convention
 ```
   - INIT : 초기화
@@ -37,6 +38,7 @@
 ```
 
 </br>
+
 ## Git Branch
 - main 브랜치 - 프로젝트 초기 셋팅, default branch
 - PR ➡️ 코드리뷰 ➡️ 머지( → main)
@@ -50,6 +52,7 @@
 ```
 
 </br>
+
 ## Directory Structure
 ```
 Nangman-Server
@@ -105,6 +108,7 @@ Nangman-Server
 ```
 
 </br>
+
 ## 설계한 Collection
 ### User Collection
 ```
@@ -129,6 +133,7 @@ Nangman-Server
 ```
 
 </br>
+
 ## package.json
 ```
 {
