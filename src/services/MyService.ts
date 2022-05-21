@@ -36,6 +36,26 @@ const myCheck = async (): Promise<MyCheckResponseDto> => {
     }
 };
 
+const miningFruits = async () => {
+    try {
+        const fruits = await Fruit.find({ 
+            userId: id,
+            onTree: true,
+        });
+
+        for (let i = 0; i < fruits.length; i++) {
+            await Fruit.findOneAndUpdate({
+                userId : fruits[i].userId,
+                onTree : fruits[i].onTree
+            }, {onTree : false})
+        }
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
 export default {
     myCheck,
+    miningFruits,
 };

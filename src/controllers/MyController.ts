@@ -28,6 +28,30 @@ const myCheck = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ *  @route PUT /my/basket
+ *  @desc UPDATE all the fruits on tree's onTree to false
+ *  @access Public
+ */
+const miningFruits = async (req: Request, res: Response) => {
+    try {
+        const data = await MyService.miningFruits();
+
+        res.status(statusCode.OK).send(
+            util.success(statusCode.OK, message.PUT_MY_FRUITS_ON_BASKET_SUCCESS, data)
+        );
+    } catch (error) {
+        console.log(error);
+        res.status(statusCode.INTERNAL_SERVER_ERROR).send(
+            util.fail(
+                statusCode.INTERNAL_SERVER_ERROR,
+                message.INTERNAL_SERVER_ERROR
+            )
+        );
+    }
+};
+
 export default {
     myCheck,
+    miningFruits,
 };
