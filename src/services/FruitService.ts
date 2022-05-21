@@ -1,5 +1,6 @@
 import Fruit from "../models/Fruit";
 import { FruitResponseDto } from "../interfaces/fruit/FruitResponseDto";
+import { FruitMyResponseDto } from "../interfaces/fruit/FruitMyResponseDto";
 
 const getFruits = async (): Promise<FruitResponseDto[]> => {
     try {
@@ -59,6 +60,36 @@ const findFruitById = async (
         };
 
         return result;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
+const getMyFruitsOnTree = async (
+    userId: string
+): Promise<FruitMyResponseDto[]> => {
+    try {
+        const fruits = await Fruit
+            .find({userId: userId})
+            .find({onTree: true})
+
+        const data = await Promise.all(
+            fruits.map(async (fruit: any) => {
+                const result = {
+                    fruitId: fruit._id,
+                    type: fruit.type,
+                    contents: fruit.contents,
+                    wateringCount: fruit.wateringCount,
+                    createdAt: fruit.createdAt,
+                    updatedAt: fruit.updatedAt,
+                };
+
+                return result;
+            })
+        );
+
+        return data;
     } catch (error) {
         console.log(error);
         throw error;

@@ -1,4 +1,4 @@
-export interface FruitResponseDto {
+export interface FruitMyResponseDto {
     fruitId: string;
     type: number;
     contents: string;
