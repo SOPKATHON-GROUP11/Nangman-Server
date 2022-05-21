@@ -1,6 +1,9 @@
 import Fruit from "../models/Fruit";
 import { FruitResponseDto } from "../interfaces/fruit/FruitResponseDto";
 import { FruitMyResponseDto } from "../interfaces/fruit/FruitMyResponseDto";
+import mongoose, { isValidObjectId } from "mongoose";
+
+const id = "6288fdbb4c7da258ef44a298";
 
 const getFruits = async (): Promise<FruitResponseDto[]> => {
     try {
@@ -37,16 +40,15 @@ const findFruitById = async (
     fruitId: string
 ): Promise<FruitResponseDto | null> => {
     try {
-        const fruit = await Fruit.findById(fruitId)
-            .populate(
+        const fruit = await Fruit.findById(fruitId).populate(
             "userId",
             "userNickname userProfileImageUrl"
-            );
+        );
 
         if (!fruit) {
             return null;
         }
-        
+
         // TODO: 코드 수정이 필요합니다
         const result = {
             fruitId: (fruit as any)._id,
@@ -66,13 +68,16 @@ const findFruitById = async (
     }
 };
 
-const getMyFruitsOnTree = async (
-    userId: string
-): Promise<FruitMyResponseDto[]> => {
+const getMyFruitsOnTree = async (): Promise<FruitMyResponseDto[] | null> => {
     try {
-        const fruits = await Fruit
-            .find({userId: userId})
-            .find({onTree: true})
+        const check = isValidObjectId(id);
+        console.log(check);
+        if (!check) return null;
+
+        const fruits = await Fruit.find({ 
+            userId: id,
+            onTree: true 
+        });
 
         const data = await Promise.all(
             fruits.map(async (fruit: any) => {

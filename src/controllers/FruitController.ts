@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import mongoose from "mongoose";
 import statusCode from "../modules/statusCode";
 import message from "../modules/responseMessage";
 import util from "../modules/util";
@@ -72,9 +73,14 @@ const findFruitById = async (req: Request, res: Response) => {
  */
 const getMyFruitsOnTree = async (req: Request, res: Response) => {
     try {
-        const data = await FruitService.getMyFruitsOnTree(
-            "6288fdbb4c7da258ef44a298"
-        );
+        const {onTree} = req.query;
+        if (onTree == undefined || onTree != 'true') {
+            return res
+                .status(statusCode.BAD_REQUEST)
+                .send(util.fail(statusCode.BAD_REQUEST, message.BAD_REQUEST));
+        }
+
+        const data = await FruitService.getMyFruitsOnTree();
 
         if (!data) {
             return res
