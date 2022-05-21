@@ -1,6 +1,7 @@
 const message = {
     // Fruit 조회
     READ_FRUIT_SUCCESS: "게시물 조회 성공",
+    READ_MY_FRUITS_ON_TREE: "내 나무에 걸려있는 과일 조회 성공",
 
     NULL_VALUE: "필요한 값이 없습니다.",
     FORBIDDEN: "Forbidden",
