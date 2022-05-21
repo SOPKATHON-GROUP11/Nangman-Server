@@ -4,3 +4,5 @@ import FruitController from "./FruitController";
 export {
     FruitController,
 };
+
+export { FruitController };
