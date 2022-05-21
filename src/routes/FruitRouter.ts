@@ -5,5 +5,6 @@ import { FruitController } from "../controllers";
 const router: Router = Router();
 
 router.get("/", FruitController.getFruits);
+router.get("/:fruitId", FruitController.findFruitById);
 
 export default router;

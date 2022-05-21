@@ -1,4 +1,7 @@
 const message = {
+    // Fruit 조회
+    READ_FRUIT_SUCCESS: "게시물 조회 성공",
+
     NULL_VALUE: "필요한 값이 없습니다.",
     FORBIDDEN: "Forbidden",
     DUPLICATED: "Duplicated",
