@@ -129,7 +129,7 @@ const getMyFruits = async (req: Request, res: Response) => {
  *  @desc UPDATE all the fruits on tree's onTree to false
  *  @access Public
  */
-const miningFruits = async (req: Request, res: Response) => {
+const putWateringCount = async (req: Request, res: Response) => {
     const { fruitId } = req.params;
     try {
         const data = await FruitService.putWateringCount(fruitId);
@@ -141,7 +141,11 @@ const miningFruits = async (req: Request, res: Response) => {
         }
 
         res.status(statusCode.OK).send(
-            util.success(statusCode.OK, message.PUT_FRUIT_WATERING_COUNT_SUCCESS, data)
+            util.success(
+                statusCode.OK,
+                message.PUT_FRUIT_WATERING_COUNT_SUCCESS,
+                data
+            )
         );
     } catch (error) {
         console.log(error);
@@ -159,4 +163,5 @@ export default {
     findFruitById,
     getMyFruitsOnTree,
     getMyFruits,
+    putWateringCount,
 };

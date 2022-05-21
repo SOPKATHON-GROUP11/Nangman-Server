@@ -8,5 +8,6 @@ router.get("/", FruitController.getFruits);
 router.get("/my/tree", FruitController.getMyFruitsOnTree);
 router.get("/my", FruitController.getMyFruits);
 router.get("/:fruitId", FruitController.findFruitById);
+router.put("/:fruitId/water", FruitController.putWateringCount);
 
 export default router;
