@@ -165,7 +165,7 @@ Nangman-Server
 ```
 
 </br>
-## 🌯 Server Architecture
+## Server Architecture🌯
 
  ![Untitled Diagram drawio](https://user-images.githubusercontent.com/39729721/169669872-bb4be172-2b11-4d35-81e2-8fac56467bb7.png)
 
