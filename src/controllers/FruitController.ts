@@ -69,7 +69,7 @@ const findFruitById = async (req: Request, res: Response) => {
 };
 
 /**
- *  @route GET /fruit/my?onTree=true
+ *  @route GET /fruit/my/tree
  *  @desc READ Fruits on my tree
  *  @access Public
  */
