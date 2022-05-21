@@ -70,13 +70,37 @@ const findFruitById = async (
 
 const getMyFruitsOnTree = async (): Promise<FruitMyResponseDto[] | null> => {
     try {
-        const check = isValidObjectId(id);
-        console.log(check);
-        if (!check) return null;
-
-        const fruits = await Fruit.find({ 
+        const fruits = await Fruit.find({
             userId: id,
-            onTree: true 
+            onTree: true,
+        });
+
+        const data = await Promise.all(
+            fruits.map(async (fruit: any) => {
+                const result = {
+                    fruitId: fruit._id,
+                    type: fruit.type,
+                    contents: fruit.contents,
+                    wateringCount: fruit.wateringCount,
+                    createdAt: fruit.createdAt,
+                    updatedAt: fruit.updatedAt,
+                };
+
+                return result;
+            })
+        );
+
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
+const getMyFruits = async (): Promise<FruitMyResponseDto[]> => {
+    try {
+        const fruits = await Fruit.find({
+            userId: id,
         });
 
         const data = await Promise.all(
@@ -105,4 +129,5 @@ export default {
     getFruits,
     findFruitById,
     getMyFruitsOnTree,
+    getMyFruits,
 };
