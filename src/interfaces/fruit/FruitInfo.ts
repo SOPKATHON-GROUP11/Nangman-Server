@@ -4,6 +4,6 @@ export interface FruitInfo {
     type: number;
     contents: string;
     wateringCount: number;
-    userId: mongoose.Types.ObjectId | string;
+    userId: mongoose.Types.ObjectId;
     onTree: boolean;
 }
