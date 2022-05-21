@@ -99,4 +99,5 @@ const getMyFruitsOnTree = async (
 export default {
     getFruits,
     findFruitById,
+    getMyFruitsOnTree,
 };
