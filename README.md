@@ -1,14 +1,14 @@
 # Nangman-Server
 
-## 서비스명
+## 푸릇푸릇
 
-푸릇 푸릇 (fruit fruit)
-
-## 서비스 한 줄 소개
+![p5](https://user-images.githubusercontent.com/39729721/169672059-5137c53b-0355-4eaa-88da-585202f5f931.png)
 
 일상 속 고맙고 미안한 사람들은 많지만 그 마음을 전하기는 쉽지 않다.<br>
 전하지 못했던 속마음을 푸릇 푸릇을 통해 남겨보는건 어떨까?
-
+</br>
+</br>
+</br>
 ## 각자 개발 담당 부분
 |박정훈|공혁준|
 |--|--|
@@ -16,11 +16,12 @@
 |GET 특정 게시글 상세 조회|POST 게시글 작성|
 |GET 트리에 달려있는 본인 게시글 전체 조회|GET 본인 게시글 전체 조회|
 |PUT 내 나무에 달린 과일들 수확|GET 트리에 달려있는 게시물이 10개 넘는지 확인|
-
+</br>
 
 ## Code Convention
 >prettier 사용
 
+</br>
 ## Commit Message Convention
 ```
   - INIT : 초기화
@@ -35,6 +36,7 @@
 
 ```
 
+</br>
 ## Git Branch
 - main 브랜치 - 프로젝트 초기 셋팅, default branch
 - PR ➡️ 코드리뷰 ➡️ 머지( → main)
@@ -47,6 +49,7 @@
    ├── /이슈번호
 ```
 
+</br>
 ## Directory Structure
 ```
 Nangman-Server
@@ -63,16 +66,45 @@ Nangman-Server
 |
 |- src
 	|- config
+		|- index.ts
 	|- controllers
+		|- FruitController.ts
+		|- index.ts
+		|- MyController.ts
 	|- interfaces
+		|- common
+			|- PostBaseResponseDto.ts
+		|- fruit
+			|- FruitCreateDto.ts
+			|- FruitInfo.ts
+			|- FruitMyResponseDto.ts
+			|- FruitResponseDto.ts
+				
+		|- my
+			|- MyCheckResponseDto.ts
+		|- user
+			|- UserInfo.ts
 	|- loaders
+		|- db.ts
 	|- models
+		|- Fruit.ts
+		|- User.ts
 	|- modules
+		|- ResponseMessage.ts
+		|- statusCode.ts
+		|- util.ts
 	|- routes
+		|- FruitRouter.ts
+		|- index.ts
+		|- MyRouter.ts
 	|- services
+		|- FruitService.ts
+		|- index.ts
+		|- MyService.ts
 	|- index.ts
 ```
 
+</br>
 ## 설계한 Collection
 ### User Collection
 ```
@@ -96,6 +128,7 @@ Nangman-Server
 }
 ```
 
+</br>
 ## package.json
 ```
 {
@@ -126,6 +159,7 @@ Nangman-Server
 }
 ```
 
+</br>
 ## 🌯 Server Architecture
 
  ![Untitled Diagram drawio](https://user-images.githubusercontent.com/39729721/169669872-bb4be172-2b11-4d35-81e2-8fac56467bb7.png)
