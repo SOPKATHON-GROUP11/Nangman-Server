@@ -1,2 +1,6 @@
+import FruitService from "./FruitService";
+
 //service index file
-export {};
+export {
+    FruitService
+};
