@@ -15,7 +15,7 @@
 |POST 특정 게시물 물뿌리기|GET 전체 게시글 조회|
 |GET 특정 게시글 상세 조회|POST 게시글 작성|
 |GET 트리에 달려있는 본인 게시글 전체 조회|GET 본인 게시글 전체 조회|
-|POST 내 나무에 달린 과일들 수확|GET 트리에 달려있는 게시물이 n개 넘는지 확인|
+|POST 내 나무에 달린 과일들 수확|GET 트리에 달려있는 게시물이 10개 넘는지 확인|
 
 
 ## Code Convention
@@ -72,3 +72,60 @@ Nangman-Server
 	|- services
 	|- index.ts
 ```
+
+## 설계한 Collection
+### User Collection
+```
+{
+    _id: ObjectId,
+    userNickname: String,
+    userProfileImageUrl: String
+}
+```
+### Fruit Collection
+```
+{
+    _id: ObjectId,
+    type: Number,
+    contents: String,
+    wateringCount: Number,
+    userId: ObjectId,
+    onTree: Boolean,
+    createdAt: Date,
+    updatedAt: Date
+}
+```
+
+## package.json
+```
+{
+    "name": "node-typescript-init",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon",
+        "build": "tsc && node dist"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/express": "^4.17.13",
+        "@types/mongoose": "^5.11.97",
+        "@types/node": "^17.0.25",
+        "nodemon": "^2.0.15",
+        "ts-node": "^10.7.0",
+        "typescript": "^4.6.3"
+    },
+    "dependencies": {
+        "dotenv": "^16.0.0",
+        "express": "^4.17.3",
+        "express-validator": "^6.14.0",
+        "mongoose": "^6.3.1"
+    }
+}
+```
+
+## 🌯 Server Architecture
+<img src="https://img.shields.io/badge/TypeScript-2d79c7?style=flat-square&logo=TypeScript&logoColor=white"/> <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/> <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=Express&logoColor=white"/> <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white"/> <img src="https://img.shields.io/badge/Mongoose-47A248?style=flat-square&logo=MongoDB&logoColor=white"/>
+ <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=AmazonAWS&logoColor=white"/> 
