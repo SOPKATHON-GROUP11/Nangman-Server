@@ -127,6 +127,24 @@ const getMyFruits = async (): Promise<FruitMyResponseDto[]> => {
     }
 };
 
+const putWateringCount = async (fruitId: string) : Promise<String | null> => {
+    try {
+        const fruit = await Fruit.findById(fruitId);
+
+        if (!fruit) {
+            return null;
+        }
+
+        const wateringCount = fruit.wateringCount + 1;
+
+        await Fruit.findByIdAndUpdate(fruitId, {wateringCount : wateringCount});
+        return "SUCCESS";
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
 const createFruit = async (
     fruitCreateDto: FruitCreateDto
 ): Promise<PostBaseResponseDto> => {
@@ -157,5 +175,6 @@ export default {
     findFruitById,
     getMyFruitsOnTree,
     getMyFruits,
+    putWateringCount,
     createFruit,
 };

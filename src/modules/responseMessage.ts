@@ -4,6 +4,7 @@ const message = {
     READ_MY_FRUITS_ON_TREE: "내 나무에 걸려있는 과일 조회 성공",
     READ_MY_FRUITS: "내 게시글 전체 조회 성공",
     READ_FRUITS_SUCCESS: "전체 게시글 조회 성공",
+    PUT_FRUIT_WATERING_COUNT_SUCCESS: "특정 게시물 물뿌리기 성공", 
 
     CREATE_FRUIT_SUCCESS: "게시글 생성 성공",
 

@@ -127,6 +127,33 @@ const getMyFruits = async (req: Request, res: Response) => {
 };
 
 /**
+ *  @route PUT /fruit/:fruitId/water
+ *  @desc UPDATE all the fruits on tree's onTree to false
+ *  @access Public
+ */
+const putWateringCount = async (req: Request, res: Response) => {
+    const { fruitId } = req.params;
+    try {
+        const data = await FruitService.putWateringCount(fruitId);
+
+        if (!data) {
+            return res
+                .status(statusCode.NOT_FOUND)
+                .send(util.fail(statusCode.NOT_FOUND, message.NOT_FOUND));
+        }
+
+        res.status(statusCode.OK).send(
+            util.success(
+                statusCode.OK,
+                message.PUT_FRUIT_WATERING_COUNT_SUCCESS
+            )
+        );
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+/**
  *  @route POST /fruit
  *  @desc Create Fruit
  *  @access Public
@@ -163,5 +190,6 @@ export default {
     findFruitById,
     getMyFruitsOnTree,
     getMyFruits,
+    putWateringCount,
     createFruit,
 };
